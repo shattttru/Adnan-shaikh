@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyResume</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=poppins:200,300,400,500,600,700,800,900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "poppins" sans-serif;
+      }
+      body {
+        background: lightblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .container {
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        min-height: 1000px;
+        background: #fff;
+        margin: 50px;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        box-shadow: 0 35px 55px rgba(0, 0, 0, 0.1);
+      }
+      .container .left_side {
+        position: relative;
+        background: #003147;
+        padding: 40px;
+      }
+      .profiletext {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 20px;
+        border-bottom: 1px solid white;
+      }
+      .profiletext .imgbx {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      .profiletext .imgbx img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .profiletext h2 {
+        color: #fff;
+        font-size: 1.5rem;
+        margin-top: 20px;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+        line-height: 1.4rem;
+      }
+      .profiletext h2 span {
+        font-size: 0.8rem;
+        font-weight: 300;
+      }
+      .contactinfo {
+        padding-top: 40px;
+      }
+      .title {
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+      }
+      .contactinfo ul {
+        position: relative;
+      }
+      .contactinfo ul li {
+        position: relative;
+        list-style: none;
+        margin: 10px 0;
+        cursor: pointer;
+      }
+      .contactinfo ul li .icon {
+        display: inline-block;
+        width: 30px;
+        font-size: 18px;
+        color: #03a9f4;
+      }
+      .contactinfo ul li span {
+        color: #fff;
+        font-weight: 300;
+      }
+      .contactinfo.education li {
+        margin-bottom: 15px;
+      }
+      .contactinfo.education h5 {
+        color: #03a9f4;
+        font-weight: 500;
+      }
+      .contactinfo.education h4:nth-child(2) {
+        color: #fff;
+        font-weight: 500;
+      }
+      .contactinfo.education h4 {
+        color: #fff;
+        font-weight: 500;
+      }
+      .contactinfo.language .percent {
+        position: relative;
+        width: 100%;
+        height: 6px;
+        background: #081922;
+        display: block;
+        margin-top: 5px;
+      }
+      .contactinfo.language .percent div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: #03a9f4;
+      }
+
+      .container .right_side {
+        position: relative;
+        background: #fff;
+        padding: 40px;
+      }
+      .about {
+        margin-bottom: 53px;
+      }
+      .about:last-child {
+        margin-bottom: 0;
+      }
+      .title2 {
+        color: #003147;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+      }
+      p {
+        color: #333;
+      }
+      .about .box {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0;
+      }
+      .about .box .company_year {
+        min-width: 150px;
+      }
+      .about .box .year_company h5 {
+        text-transform: uppercase;
+        color: #848c90;
+        font-weight: 600;
+      }
+      .about .box .text h4 {
+        text-transform: uppercase;
+        color: #2a7da2;
+        font-size: 16px;
+      }
+      .skills .box {
+        position: relative;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        justify-content: center;
+        align-items: center;
+      }
+      .skills .box h4 {
+        text-transform: uppercase;
+        color: #848c99;
+        font-weight: 600;
+      }
+      .skills .box .percent {
+        position: relative;
+        width: 100%;
+        height: 10px;
+        background: #f0f0f0;
+      }
+      .percentdiv {
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: #03a9f4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left_side">
+        <div class="profiletext">
+          <div class="imgbx">
+            <img src="img/profile5.jpg" alt="" />
+          </div>
+          <h2>ADNAN SHAIKH<br /><span>FuLL STACK Web Developer</span></h2>
+        </div>
+
+        <div class="contactinfo">
+          <h3 class="title">Contact Info</h3>
+          <ul>
+            <li>
+              <span class="icon"
+                ><i class="fa fa-phone" aria-hidden="true"></i
+              ></span>
+              <span class="text">+91 8980950405</span>
+            </li>
+            <li>
+              <span class="icon"
+                ><i class="fa fa-envelope-o" aria-hidden="true"></i
+              ></span>
+              <span class="text">adnanshaikh2323@gmail.com</span>
+            </li>
+            <li>
+              <span class="icon"
+                ><i class="fa fa-globe" aria-hidden="true"></i
+              ></span>
+              <span class="text">www.myresume.com</span>
+            </li>
+            <li>
+              <span class="icon"
+                ><i class="fa fa-linkedin-square" aria-hidden="true"></i
+              ></span>
+              <span class="text">www.linkedin.com/me</span>
+            </li>
+            <li>
+              <span class="icon"
+                ><i class="fa fa-map-marker" aria-hidden="true"></i
+              ></span>
+              <span class="text">gujarat,surat</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contactinfo education">
+          <h3 class="title">Education</h3>
+          <ul>
+            <li>
+              <h5>2021 - 2024</h5>
+              <h4>Bachelor Degree in Computer Science</h4>
+              <h4>University Name</h4>
+            </li>
+            <li>
+              <h5>2007 - 2020</h5>
+              <h4>Bachelor Degree in Computer Science</h4>
+              <h4>University Name</h4>
+            </li>
+            <li>
+              <h5>2007 - 2020</h5>
+              <h4>Bachelor Degree in Computer Science</h4>
+              <h4>University Name</h4>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contactinfo language">
+          <h3 class="title">Languages</h3>
+          <ul>
+            <li>
+              <span class="text">English</span>
+              <span class="percent">
+                <div style="width: 90%"></div>
+              </span>
+            </li>
+            <li>
+              <span class="text">Hindi</span>
+              <span class="percent">
+                <div style="width: 90%"></div>
+              </span>
+            </li>
+            <li>
+              <span class="text">Gujarat</span>
+              <span class="percent">
+                <div style="width: 90%"></div>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="right_side">
+        <div class="about">
+          <h2 class="title2">profile</h2>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit odit
+            sequi, odio consequatur ratione, nobis quisquam eum architecto illum
+            vel aperiam, eius et. Laborum inventore repudiandae ad similique
+            necessitatibus odit.<br /><br />Lorem ipsum dolor sit amet
+            consectetur, adipisicing elit. Dolores mollitia reprehenderit nulla!
+            Numquam obcaecati laboriosam unde, eos odio dolore eaque minima
+            doloremque ad dignissimos reprehenderit ab, ea quaerat voluptas
+            iure.
+          </p>
+        </div>
+        <div class="about">
+          <h2 class="title2">Experience</h2>
+          <div class="box">
+            <div class="company_year">
+              <h5>2019 - present</h5>
+              <h5>Company Name</h5>
+            </div>
+            <div class="text">
+              <h4>Senior UX designer</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Repudiandae, expedita facilis. Illo provident quas quia
+                similique pariatur delectus, minus blanditiis quod aspernatur,
+                ducimus, magni porro esse quos odit dicta fuga.
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="company_year">
+              <h5>2016 - 2019</h5>
+              <h5>Company Name</h5>
+            </div>
+            <div class="text">
+              <h4>UI/UX designer</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Repudiandae, expedita facilis. Illo provident quas quia
+                similique pariatur delectus, minus blanditiis quod aspernatur,
+                ducimus, magni porro esse quos odit dicta fuga.
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="company_year">
+              <h5>2014 - 2016</h5>
+              <h5>Company Name</h5>
+            </div>
+            <div class="text">
+              <h4>junior UX designer</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Repudiandae, expedita facilis. Illo provident quas quia
+                similique pariatur delectus, minus blanditiis quod aspernatur,
+                ducimus, magni porro esse quos odit dicta fuga.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about skills">
+          <h2 class="title2">Professional skills</h2>
+          <div class="box">
+            <h4>Html</h4>
+            <div class="percent">
+              <div style="width: 95%" class="percentdiv"></div>
+            </div>
+          </div>
+          <div class="box">
+            <h4>CSS</h4>
+            <div class="percent">
+              <div style="width: 95%" class="percentdiv"></div>
+            </div>
+          </div>
+          <div class="box">
+            <h4>javascript</h4>
+            <div class="percent">
+              <div style="width: 95%" class="percentdiv"></div>
+            </div>
+          </div>
+          <div class="box">
+            <h4>Photoshop</h4>
+            <div class="percent">
+              <div style="width: 95%" class="percentdiv"></div>
+            </div>
+          </div>
+          <div class="box">
+            <h4>illustrator</h4>
+            <div class="percent">
+              <div style="width: 95%" class="percentdiv"></div>
+            </div>
+          </div>
+          <div class="box">
+            <h4>Adobe XD</h4>
+            <div class="percent">
+              <div style="width: 95%" class="percentdiv"></div>
+            </div>
+          </div>
+        </div>
+      </div>
